@@ -181,7 +181,9 @@ select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper-2);bo
 .g h5{font-size:1rem;font-weight:600;font-style:italic;margin:16px 0 2px}
 .g p{margin:0 0 6px}
 .g-m{margin:4px 0 0;padding-left:1.3em}
-.g-m li{margin:0 0 6px}
+.g-m li{margin:0 0 13px;padding-left:2px}
+.g-m li b{font-weight:600}
+.g-d{display:block;margin-top:2px}
 .g-m cite{font-style:normal;color:var(--ink-soft);font-size:15px;font-variant-numeric:lining-nums}
 .g-back{margin-top:8px;font-size:15px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
 .guide-link{display:inline-block;margin:4px 0 4px;padding:5px 14px;border:1px solid var(--prophet);color:var(--prophet);border-radius:999px;font-size:16px}
@@ -426,6 +428,362 @@ daniel:{c:'Nebuchadnezzar, Belshazzar, and the officials of Darius the Mede.',m:
 ezekiel:{c:'The exiles and their elders, the false prophets (13), the shepherds of Israel (34), and what was going on inside the Temple (8).',m:[['The vision of the throne-chariot','Ezek 1'],['Eats the scroll','Ezek 2:8–3:3'],['Appointed a watchman','Ezek 3:16–21; 33'],['Acts out the siege, lying on his side','Ezek 4–5'],['Sees idolatry in the Temple; the glory departs','Ezek 8–11'],['Each person answers for his own sin','Ezek 18'],['The false shepherds, and God as the true shepherd','Ezek 34'],['A new heart and a new spirit','Ezek 36:26'],['The valley of dry bones','Ezek 37'],['The river flowing from the Temple','Ezek 47']],r:'Chapters 1–3, 8–11, 18, 33–37 and 47. Chapters 1–24 happen while Zedekiah still rules in Jerusalem, so read them against 2 Kings 24–25.',t:'He dates everything by Jehoiachin’s exile, so “the fifth year” means 593 BC. The river of chapter 47 is the source of the Vidi aquam, sung at the sprinkling rite in the Easter season.'},
 joel:{c:'Judah’s priests and people, called to repent.',m:[['The locust plague','Joel 1'],['Rend your heart, and not your garments','Joel 2:12–13'],['I will pour out my spirit upon all flesh','Joel 2:28–32 (3:1–5 in NABRE)'],['The valley of Jehoshaphat','Joel 3 (4 in NABRE)']],r:'Three or four chapters, depending on your Bible. Then Acts 2:14–21.',t:'Joel 2:12–18 is the first reading on Ash Wednesday, and Peter quotes him at Pentecost. The valley of Jehoshaphat means “the Lord judges” and isn’t named for the king.'},
 obadiah:{c:'Edom.',m:[['The pride of Edom in its rock fortress','Obad 1–4'],['Gloating and looting when Jerusalem fell','Obad 10–14'],['The day of the Lord; the kingdom shall be the Lord’s','Obad 15–21']],r:'One chapter. Read it with Psalm 137:7 and Lamentations 4:21–22.',t:'Edom descends from Esau, so this is Jacob and Esau again (Genesis 25–33), the brothers’ quarrel still running centuries later.'}
+};
+const MOM={
+nathan:[
+['The covenant with David','2 Sam 7:1–17','David wants to build God a house. Nathan first tells him to go ahead, then comes back with God’s answer: God will build David a house instead, a dynasty, and David’s son will build the Temple. “Thy throne shall be established for ever.”'],
+['The parable of the ewe lamb','2 Sam 12:1–6','After Bathsheba and the death of Uriah, Nathan tells David about a rich man who took a poor man’s only lamb to feed a guest. David, furious, says the man deserves to die.'],
+['“Thou art the man”','2 Sam 12:7–15','Nathan turns the story on David and announces that the sword will never leave his house. David confesses; Psalm 51 is traditionally tied to this moment.'],
+['Names the baby Solomon Jedidiah','2 Sam 12:24–25','Sent to give the newborn the name Jedidiah, “beloved of the Lord.”'],
+['Secures Solomon’s succession','1 Kgs 1:11–40','When Adonijah throws himself a coronation feast, Nathan and Bathsheba go to the dying David, who has Solomon anointed at the spring of Gihon.']
+],
+ahijah:[
+['The torn cloak','1 Kgs 11:29–39','Outside Jerusalem, Ahijah tears his new cloak into twelve pieces and hands Jeroboam ten: ten tribes for him, one kept for David’s house.'],
+['A conditional promise','1 Kgs 11:38','If Jeroboam keeps God’s commands as David did, he will have “a sure house.” The rest of Jeroboam’s story turns on that “if.”'],
+['Fulfilled at Shechem','1 Kgs 12:15','The writer says Rehoboam’s harsh answer to the northern tribes came from the Lord, to fulfill what Ahijah had said.'],
+['The disguised queen','1 Kgs 14:1–6','Jeroboam’s son falls sick, and Jeroboam sends his wife to Ahijah in disguise. The prophet is blind by now, but the Lord tells him she is coming, and he greets her by name.'],
+['Judgment on Jeroboam’s house','1 Kgs 14:7–16','The boy will die as she enters the city, the house of Jeroboam will be swept away, and Israel itself will one day be uprooted beyond the Euphrates: the first warning of the exile.'],
+['Fulfilled','1 Kgs 14:17–18; 15:29','The child dies as she crosses the threshold. A generation later Baasha kills every member of Jeroboam’s family.']
+],
+shemaiah:[
+['Stops a civil war','1 Kgs 12:21–24','Rehoboam musters 180,000 men to bring the north back by force. Shemaiah tells them not to fight their brothers, because this thing is from the Lord. They go home.'],
+['Shishak invades','2 Chr 12:1–5','After Rehoboam abandons the Law, Pharaoh Shishak takes Judah’s fortified cities. Shemaiah tells the king and princes that because they left the Lord, the Lord has left them to Shishak.'],
+['Repentance and partial mercy','2 Chr 12:6–12','The king and princes humble themselves. God spares Jerusalem destruction but makes Judah Shishak’s servants, so they will learn the difference between serving him and serving the kingdoms of the earth.'],
+['Recorder of Rehoboam’s reign','2 Chr 12:15','His writings are cited as a source for Rehoboam’s history.']
+],
+man_of_god:[
+['Cries out against the altar','1 Kgs 13:1–3','At Jeroboam’s new feast at Bethel, he prophesies that a son of David named Josiah will burn the bones of its priests on this altar, and gives a sign: the altar will split and its ashes pour out.'],
+['The king’s hand','1 Kgs 13:4–6','Jeroboam points at him and orders his arrest, and the outstretched hand withers. The altar splits. At the king’s plea the man prays, and the hand is restored.'],
+['Refuses the king’s table','1 Kgs 13:7–10','He has been ordered not to eat or drink in that place, or to go home the way he came.'],
+['The old prophet’s lie','1 Kgs 13:11–19','An old prophet of Bethel catches up with him and claims an angel told him to bring the man home for a meal. He goes.'],
+['The lion','1 Kgs 13:20–32','During the meal the old prophet speaks a true word of judgment over him. On the road a lion kills him but leaves his body and the donkey untouched. The old prophet buries him in his own tomb and asks to be buried beside him.'],
+['Fulfilled by Josiah','2 Kgs 23:15–18','Three centuries later Josiah burns bones on the Bethel altar, finds this man’s monument, and leaves both prophets’ bones alone.']
+],
+azariah_o:[
+['The victory over Zerah','2 Chr 14:9–15','Asa’s outnumbered army defeats a huge Cushite force after Asa prays. The prophecy follows directly.'],
+['The word to Asa','2 Chr 15:1–7','The Lord is with you while you are with him. Seek him and he will be found; forsake him and he will forsake you. Be strong, for your work will be rewarded.'],
+['The reform','2 Chr 15:8–15','Asa removes idols from the land, repairs the Lord’s altar, and gathers Judah, Benjamin and defectors from the north into a covenant oath.'],
+['Maacah removed','2 Chr 15:16','Asa deposes his own grandmother as queen mother and burns her Asherah image at the Kidron.']
+],
+hanani:[
+['Asa hires Syria','2 Chr 16:1–6','When Baasha fortifies Ramah, Asa sends silver and gold from the Temple to Ben-hadad, who attacks Israel’s northern towns.'],
+['The rebuke','2 Chr 16:7–9','You relied on Syria instead of the Lord, and so Syria slipped out of your hand. The eyes of the Lord run to and fro throughout the whole earth to strengthen those whose hearts are wholly his. You acted foolishly, and from now on you will have wars.'],
+['In the stocks','2 Chr 16:10','Asa, enraged, puts him in prison and oppresses some of the people at the same time.'],
+['Asa’s last years','2 Chr 16:12','Struck with a disease in his feet, Asa seeks physicians and not the Lord.']
+],
+jehu_p:[
+['Against Baasha','1 Kgs 16:1–4','God raised Baasha out of the dust, but he walked in Jeroboam’s way. His house will end like Jeroboam’s, its dead left to dogs and birds.'],
+['Fulfilled under Elah','1 Kgs 16:11–13','Zimri kills the whole house of Baasha, which the writer says happened according to the word spoken by Jehu the prophet.'],
+['Against Jehoshaphat','2 Chr 19:1–3','He meets Jehoshaphat coming home from the battle where Ahab died: “Shouldest thou help the ungodly, and love them that hate the Lord?” Yet there is good in you, he says, because you removed the Asherah poles.'],
+['The historian','2 Chr 20:34','Jehoshaphat’s acts are recorded in the book of Jehu son of Hanani.']
+],
+elijah:[
+['The drought announced','1 Kgs 17:1','He arrives with no introduction beyond “the Tishbite” from Gilead and tells Ahab there will be no dew or rain except at his word. James 5:17 says it lasted three and a half years.'],
+['The brook Cherith','1 Kgs 17:2–7','He hides east of the Jordan, where ravens bring him bread and meat morning and evening until the brook dries up.'],
+['The widow of Zarephath','1 Kgs 17:8–16','Sent into Sidon, Jezebel’s home country, to a widow down to her last handful of flour. Her jar of flour and jug of oil don’t run out. Jesus cites her in Luke 4:25–26.'],
+['Her son raised','1 Kgs 17:17–24','He stretches himself over the dead boy three times and cries to the Lord, and the child lives: the first raising of the dead in Scripture.'],
+['Obadiah the steward','1 Kgs 18:1–16','In the third year Elijah meets Ahab’s steward, who has hidden a hundred prophets from Jezebel in caves, and sends him to tell Ahab that Elijah is here.'],
+['“Art thou he that troubleth Israel?”','1 Kgs 18:17–19','Ahab blames Elijah for the drought; Elijah blames Ahab’s Baal worship, and calls for a meeting on Mount Carmel with 450 prophets of Baal and 400 of Asherah.'],
+['“How long halt ye between two opinions?”','1 Kgs 18:20–29','Baal’s prophets call on him from morning to evening and cut themselves. Elijah mocks them: perhaps their god is busy, traveling, or asleep.'],
+['Fire from heaven','1 Kgs 18:30–40','He rebuilds the Lord’s altar with twelve stones, has it soaked three times, and prays once. Fire consumes the sacrifice, the wood, the stones and the water. The people cry, “The Lord, he is the God,” and the prophets of Baal are killed at the brook Kishon.'],
+['The rain','1 Kgs 18:41–46','He prays with his face between his knees while his servant looks out to sea seven times, until a cloud the size of a man’s hand appears. Then he outruns Ahab’s chariot to Jezreel.'],
+['Under the broom tree','1 Kgs 19:1–8','Jezebel swears to kill him. He flees to the wilderness past Beersheba and asks to die. An angel wakes him twice with bread and water, and he walks forty days and nights to Horeb.'],
+['The still small voice','1 Kgs 19:9–18','A great wind, an earthquake and a fire pass by, and the Lord is in none of them; then a still small voice. He is sent to anoint Hazael, Jehu and Elisha, and told that 7,000 in Israel have never bowed to Baal.'],
+['Elisha called','1 Kgs 19:19–21','He throws his cloak over Elisha, who is plowing with twelve yoke of oxen.'],
+['Naboth’s vineyard','1 Kgs 21:17–24','After Jezebel has Naboth framed and stoned, Elijah meets Ahab in the vineyard: “Hast thou killed, and also taken possession?” Dogs will lick Ahab’s blood where they licked Naboth’s, and dogs will eat Jezebel by the wall of Jezreel.'],
+['Ahab humbles himself','1 Kgs 21:27–29','Ahab tears his clothes, fasts and goes about in sackcloth, and the judgment on his house is postponed to his son’s days.'],
+['Ahaziah and Baal-zebub','2 Kgs 1','Is it because there is no God in Israel that you consult the god of Ekron? Fire falls on two captains and their fifty men; the third begs for mercy, and Elijah goes down and tells the king himself that he will die.'],
+['A letter to Jehoram of Judah','2 Chr 21:12–15','Judgment by letter on Judah’s king, Ahab’s son-in-law, for following the ways of Ahab’s house and murdering his brothers.'],
+['The whirlwind','2 Kgs 2:1–12','From Gilgal to Bethel to Jericho to the Jordan, which he parts with his rolled-up cloak. A chariot of fire separates him from Elisha, who cries, “My father, my father, the chariot of Israel, and the horsemen thereof.”'],
+['The Transfiguration','Mt 17:1–13','He appears with Moses, talking with Jesus. Coming down the mountain, Jesus tells the disciples that Elijah has already come, meaning John the Baptist.']
+],
+micaiah:[
+['“Is there not here a prophet of the Lord besides?”','1 Kgs 22:1–8','Ahab’s 400 prophets tell him to attack Ramoth-gilead. Jehoshaphat asks whether there is another prophet. There is one, says Ahab, but I hate him, because he never prophesies good about me.'],
+['Zedekiah’s iron horns','1 Kgs 22:10–12','A court prophet acts out the victory with iron horns: with these you will gore Syria.'],
+['The mocking yes','1 Kgs 22:13–16','Told by the messenger to agree with everyone else, Micaiah repeats their promise of victory, so obviously that Ahab orders him to tell the truth.'],
+['Sheep without a shepherd','1 Kgs 22:17','He saw all Israel scattered on the hills, like sheep that have no shepherd: Ahab will not come back.'],
+['The heavenly council','1 Kgs 22:19–23','He saw the Lord on his throne asking who would lure Ahab to his death, and a spirit volunteering to be a lying spirit in the mouths of all Ahab’s prophets.'],
+['Struck and jailed','1 Kgs 22:24–28','Zedekiah slaps him. Ahab sends him to prison on bread and water until he returns safely. If you return at all, Micaiah answers, the Lord has not spoken by me.'],
+['Fulfilled','1 Kgs 22:34–38','Ahab goes into battle disguised. An arrow shot at random finds the gap between the plates of his armor, and dogs lick his blood when the chariot is washed at Samaria.']
+],
+jahaziel:[
+['The invasion','2 Chr 20:1–4','Moab, Ammon and others march on Judah. Jehoshaphat, afraid, proclaims a fast.'],
+['The king’s prayer','2 Chr 20:5–13','Standing before the whole assembly: we have no power against this great company, and we don’t know what to do, but our eyes are on you.'],
+['The word','2 Chr 20:14–17','The Spirit comes on Jahaziel, a Levite of Asaph’s line, in the middle of the assembly: “the battle is not yours, but God’s.” Stand still and see the salvation of the Lord.'],
+['The singers lead the army','2 Chr 20:20–23','The choir marches out in front singing that the Lord’s mercy endures forever, and the invading armies turn on each other.'],
+['The valley of Blessing','2 Chr 20:24–30','It takes three days to gather the spoil. They name the place Berachah, “blessing,” and Judah has rest.']
+],
+elisha:[
+['Called from the plow','1 Kgs 19:19–21','Elijah throws his cloak over him while he is plowing with twelve yoke of oxen. Elisha asks to kiss his parents goodbye, then slaughters his oxen and boils the meat over the wood of the plow: no going back.'],
+['He will not leave Elijah','2 Kgs 2:1–6','Three times Elijah tells him to stay behind, at Gilgal, Bethel and Jericho, and three times he refuses.'],
+['A double portion','2 Kgs 2:9–12','He asks for a double portion of Elijah’s spirit, the share a firstborn son inherits. It will be his if he sees Elijah taken. He does.'],
+['“Where is the Lord God of Elijah?”','2 Kgs 2:13–15','He strikes the Jordan with Elijah’s fallen cloak, and the river parts. The prophets at Jericho say that the spirit of Elijah rests on Elisha.'],
+['Jericho’s water healed','2 Kgs 2:19–22','He throws salt into the city’s bad spring, and it is healed.'],
+['The boys at Bethel','2 Kgs 2:23–25','A crowd of youths from Bethel, the calf-shrine city, jeer, “Go up, thou bald head,” a taunt aimed at Elijah’s going up. Two bears maul forty-two of them.'],
+['Water for three kings','2 Kgs 3','Joram of Israel, Jehoshaphat and the king of Edom run out of water marching on Moab. For Jehoshaphat’s sake Elisha asks for a musician, then promises water without wind or rain. The ditches fill, and the Moabites, seeing it red in the morning sun, think it is blood.'],
+['The widow’s oil','2 Kgs 4:1–7','A prophet’s widow is about to lose her two sons to her creditor. Her one jar of oil fills every vessel she can borrow, enough to pay the debt and live on.'],
+['The Shunammite woman','2 Kgs 4:8–17','A wealthy woman of Shunem builds him a room on her roof. He promises her a son, and a year later she has one.'],
+['Her son raised','2 Kgs 4:18–37','The boy dies in her lap. She rides to Elisha at Carmel and won’t leave without him. Gehazi lays the staff on the boy with no result; Elisha stretches himself on the child, and he sneezes seven times and opens his eyes.'],
+['Death in the pot','2 Kgs 4:38–41','During a famine someone adds wild gourds to the prophets’ stew and it turns poisonous. Elisha throws in flour, and it is safe.'],
+['Twenty loaves for a hundred','2 Kgs 4:42–44','A man brings twenty barley loaves. Elisha has them set before a hundred men, “and they did eat, and left thereof.”'],
+['Naaman healed','2 Kgs 5:1–14','The Syrian commander has leprosy and comes on the word of an Israelite slave girl. He is insulted to be told by messenger to wash seven times in the Jordan, but his servants talk him into it, and his flesh becomes like a little child’s.'],
+['Naaman’s confession','2 Kgs 5:15–19','Now I know there is no God in all the earth but in Israel. He takes home two mule-loads of Israel’s soil to worship on, and asks pardon in advance for bowing beside his master in the temple of Rimmon.'],
+['Gehazi’s greed','2 Kgs 5:20–27','Elisha’s servant runs after Naaman, invents a request for silver and clothes, and hides them. Elisha knows, and Naaman’s leprosy passes to Gehazi.'],
+['The floating axe head','2 Kgs 6:1–7','A borrowed iron axe head falls into the Jordan. Elisha throws in a stick, and the iron floats.'],
+['Chariots of fire at Dothan','2 Kgs 6:8–23','Elisha keeps warning the king of Israel where Syria will strike, so Syria surrounds his town. His servant panics until his eyes are opened to hills full of horses and chariots of fire. The Syrian army is struck blind, led into Samaria, fed, and sent home.'],
+['The siege of Samaria','2 Kgs 6:24–7:20','Famine so bad a donkey’s head sells for eighty pieces of silver and mothers eat a child. The king blames Elisha, who promises cheap flour by tomorrow. Four lepers find the Syrian camp abandoned, and the officer who scoffed is trampled in the gate.'],
+['The Shunammite’s land','2 Kgs 8:1–6','Back from seven years abroad during a famine, she comes to petition the king for her land just as Gehazi is telling him how Elisha raised her son. The king restores everything.'],
+['Hazael','2 Kgs 8:7–15','In Damascus, the sick Ben-hadad sends Hazael with forty camel-loads of gifts. Elisha stares at him until Hazael is ashamed, then weeps, foretelling the harm Hazael will do to Israel as king. The next day Hazael smothers Ben-hadad.'],
+['Jehu anointed','2 Kgs 9:1–13','He sends a young prophet to Ramoth-gilead with a flask of oil and orders to anoint Jehu, then open the door and run.'],
+['The arrows','2 Kgs 13:14–19','On his deathbed King Jehoash weeps over him with the same words Elisha cried over Elijah. Elisha has him shoot the arrow of the Lord’s victory, then strike the ground with arrows. He stops at three, and Elisha is angry: five or six strikes would have finished Syria.'],
+['His bones','2 Kgs 13:20–21','Men burying a body spot raiders, throw the corpse into Elisha’s grave, and when it touches his bones the man revives and stands up.']
+],
+zechariah_p:[
+['Jehoiada’s death','2 Chr 24:15–16','The priest who saved Joash dies at 130 and is buried among the kings, the only commoner given that honor.'],
+['The princes take over','2 Chr 24:17–19','With Jehoiada gone, Joash listens to Judah’s princes, and they go back to Asherah worship. Prophets are sent; no one listens.'],
+['The Spirit comes on him','2 Chr 24:20','Standing above the people: why do you transgress? Because you have forsaken the Lord, he has forsaken you.'],
+['Stoned in the Temple court','2 Chr 24:21–22','At the king’s command. Joash has forgotten everything Jehoiada did for him. Dying, Zechariah says, “The Lord look upon it, and require it.”'],
+['Judgment','2 Chr 24:23–25','Within the year a small Syrian force routs Judah’s large army. Joash is wounded, then killed in his bed by his own servants for the blood of Jehoiada’s son.'],
+['In the Gospels','Mt 23:35; Lk 11:51','Jesus speaks of the blood of the righteous from Abel to Zechariah, the first and last martyrs in the Hebrew Bible’s order.']
+],
+jonah:[
+['The prophet of Jeroboam’s comeback','2 Kgs 14:25–27','From Gath-hepher in Galilee, a few miles from Nazareth. He foretold that Jeroboam II would restore Israel’s borders, because the Lord saw Israel’s bitter affliction.'],
+['The call and the flight','Jonah 1:1–3','Told to cry out against Nineveh, he pays his fare on a ship to Tarshish, the opposite direction.'],
+['The storm','Jonah 1:4–16','The pagan sailors pray while Jonah sleeps. The lot falls on him, he tells them to throw him overboard, and the sea goes calm. The sailors end up fearing the Lord and offering sacrifices.'],
+['The great fish','Jonah 1:17 (2:1 in NABRE)','Three days and three nights in the belly of the fish.'],
+['The prayer from the deep','Jonah 2','A psalm of thanksgiving from inside the fish, ending, “Salvation is of the Lord.” Then the fish vomits him onto dry land.'],
+['The second call','Jonah 3:1–4','Nineveh is a three days’ walk across. His whole message: “Yet forty days, and Nineveh shall be overthrown.”'],
+['Nineveh repents','Jonah 3:5–10','The people believe God, and the king puts on sackcloth and orders a fast for everyone, cattle included. God relents.'],
+['Jonah’s anger','Jonah 4:1–4','He finally says why he ran: he knew God was gracious and merciful, slow to anger and of great kindness, the words of Exodus 34:6, and he didn’t want Nineveh to have it.'],
+['The plant and the worm','Jonah 4:5–11','A plant shades him for a day; a worm kills it and he wants to die. God answers: you pity a plant you didn’t grow; should I not spare Nineveh, with 120,000 people who can’t tell their right hand from their left, and also much cattle? The book ends there.'],
+['The sign of Jonah','Mt 12:38–41','Asked for a sign, Jesus offers only this one: three days and three nights, and the men of Nineveh will rise in judgment because they repented.']
+],
+amos:[
+['From Tekoa, before the earthquake','Amos 1:1','A shepherd from the Judean village of Tekoa, prophesying in Israel two years before an earthquake people still remembered centuries later (Zech 14:5).'],
+['The Lord roars from Zion','Amos 1:2','His opening line: the Lord roars like a lion, and the top of Carmel withers.'],
+['Oracles against the nations','Amos 1:3–2:5','Damascus, Gaza, Tyre, Edom, Ammon, Moab, then Judah, each introduced “for three transgressions, and for four.” The circle tightens toward his audience.'],
+['Israel’s turn','Amos 2:6–16','They sell the righteous for silver and the poor for a pair of shoes, trample the heads of the poor in the dust, and lie down beside altars on clothes taken in pledge.'],
+['“You only have I known”','Amos 3:1–8','Being chosen means being held to account. Then a run of questions: can two walk together unless they agree? Does a lion roar with no prey?'],
+['The cows of Bashan','Amos 4:1–3','The wealthy women of Samaria, who crush the needy and tell their husbands to bring drinks, will be led out through the breaches in the wall with hooks.'],
+['“Yet have ye not returned unto me”','Amos 4:6–13','Famine, drought, blight, plague, defeat, and after each one the same refrain, five times. Then: “prepare to meet thy God, O Israel.”'],
+['Seek the Lord and live','Amos 5:4–15','Not at Bethel, Gilgal or Beersheba. Hate evil, love good, and establish justice in the gate, where cases were heard.'],
+['The Day of the Lord','Amos 5:18–20','They long for it as a day of victory. It will be darkness, like a man who flees a lion and meets a bear.'],
+['“I hate, I despise your feast days”','Amos 5:21–24','Offerings and songs are rejected. Instead, let judgment run down as waters, and righteousness as a mighty stream.'],
+['At ease in Zion','Amos 6:1–7','Lying on beds of ivory, eating lambs from the flock, singing to the harp, drinking wine by the bowl, and not grieving over the ruin of Joseph. They will be first into exile.'],
+['Three visions','Amos 7:1–9','Locusts and fire: Amos pleads, and God relents. Then a plumb line held against a wall: this time there will be no relenting.'],
+['Amaziah of Bethel','Amos 7:10–17','The priest reports him to Jeroboam as a conspirator and tells him to go back to Judah. Amos answers that he was no prophet, nor a prophet’s son, but a herdsman and gatherer of sycamore figs, and the Lord took him from the flock.'],
+['The basket of summer fruit','Amos 8:1–3','A Hebrew pun: summer fruit (qayitz) means the end (qetz) has come.'],
+['A famine of the word','Amos 8:4–14','Merchants wait for the Sabbath to end so they can cheat with false scales and buy the poor for silver. The coming famine will be not of bread but of hearing the words of the Lord.'],
+['No hiding','Amos 9:1–4','The Lord stands beside the altar. Dig into hell or climb to heaven, there is no escape.'],
+['David’s fallen booth','Amos 9:11–15','The book ends with the fallen house of David raised up and mountains dripping sweet wine. James quotes it at the Council of Jerusalem (Acts 15:16–17).']
+],
+hosea:[
+['Dated by four kings of Judah','Hos 1:1','Uzziah, Jotham, Ahaz and Hezekiah, but only one king of Israel, Jeroboam II. The northern kings after him may not have seemed worth naming.'],
+['Marriage to Gomer','Hos 1:2–3','Told to take a wife of whoredom, because the land has whored away from the Lord. He marries Gomer, daughter of Diblaim.'],
+['Jezreel','Hos 1:4–5','The first son’s name: God will avenge the blood of Jezreel on the house of Jehu, the dynasty still on the throne when Hosea spoke.'],
+['Not Pitied and Not My People','Hos 1:6–9','A daughter, Lo-ruhamah, and a son, Lo-ammi. The second name undoes the covenant formula itself: you are not my people, and I will not be your God.'],
+['The reversal promised','Hos 1:10–2:1 (2:1–3 in NABRE)','Where it was said, “Ye are not my people,” they will be called sons of the living God. Paul quotes it in Romans 9:26.'],
+['The unfaithful wife','Hos 2:2–13 (2:4–15 in NABRE)','She credits her lovers, the Baals, with the grain, wine and oil that God gave her.'],
+['Courtship in the wilderness','Hos 2:14–23 (2:16–25 in NABRE)','“I will allure her, and bring her into the wilderness, and speak comfortably unto her.” The valley of Achor becomes a door of hope; she will call God “my husband,” not “my Baal”; he will betroth her forever in righteousness, mercy and faithfulness.'],
+['Buying her back','Hos 3','Hosea buys Gomer back for fifteen pieces of silver and some barley. Israel will live many days without king or sacrifice, then return and seek “David their king.”'],
+['The Lord’s case against the land','Hos 4:1–3','No truth, no mercy, no knowledge of God; swearing, lying, killing, stealing, adultery. The land itself mourns.'],
+['Priests who don’t teach','Hos 4:4–10','“My people are destroyed for lack of knowledge,” because the priests rejected it. Like people, like priest.'],
+['“Come, and let us return”','Hos 6:1–3','After two days he will revive us; on the third day he will raise us up. The Church Fathers read it of the Resurrection.'],
+['Mercy, not sacrifice','Hos 6:4–6','Israel’s goodness is like morning mist. “I desired mercy, and not sacrifice; and the knowledge of God more than burnt offerings.” Jesus quotes it twice (Matthew 9:13; 12:7).'],
+['“All their kings are fallen”','Hos 7:3–7','Hot as an oven, the conspirators devour their rulers. This is 2 Kings 15 from the inside.'],
+['A silly dove','Hos 7:11','Ephraim flits between Egypt and Assyria for help, the foreign policy you can watch swing from Menahem to Hoshea.'],
+['Sow the wind','Hos 8:4–7','They set up kings, but not by me. The calf of Samaria will be broken. They have sown the wind, and they shall reap the whirlwind.'],
+['The calf goes to Assyria','Hos 10:5–8','The Bethel calf will be carried off as tribute, and the people will say to the mountains, “Cover us” (quoted in Luke 23:30 and Revelation 6:16).'],
+['“Out of Egypt have I called my son”','Hos 11:1–4','When Israel was a child, I loved him. I taught Ephraim to walk and drew them with cords of love. Matthew applies it to the Holy Family (Matthew 2:15).'],
+['“How shall I give thee up, Ephraim?”','Hos 11:8–9','God’s heart turns within him: I will not destroy Ephraim, for I am God, and not man.'],
+['Jacob remembered','Hos 12:2–6','The patriarch wrestled with the angel and wept and pleaded. So turn to your God, keep mercy and judgment, and wait on him continually.'],
+['“O death, I will be thy plagues”','Hos 13:14','Paul echoes it in 1 Corinthians 15:55: O death, where is thy sting?'],
+['“O Israel, return”','Hos 14','Take words with you and return. I will heal their backsliding and love them freely; I will be as the dew to Israel. The book ends: the ways of the Lord are right.']
+],
+isaiah:[
+['“Though your sins be as scarlet”','Isa 1','The ox knows its owner, but Israel does not know God. Sacrifices without justice are a burden to him. Yet: though your sins be as scarlet, they shall be as white as snow (1:18).'],
+['Swords into plowshares','Isa 2:1–4','In the last days the nations stream to the mountain of the Lord’s house, and war is unlearned. Micah 4 has the same oracle.'],
+['The song of the vineyard','Isa 5:1–7','A love song about a vineyard that yields only wild grapes, then the twist: the vineyard is Israel. God looked for justice and found oppression, a pun in Hebrew (mishpat, mispach).'],
+['Six woes','Isa 5:8–24','On those who join house to house and field to field, who drink from morning, who call evil good and good evil.'],
+['The call','Isa 6','In the year Uzziah died: the Lord enthroned, seraphim crying “Holy, holy, holy.” “Woe is me,” a live coal on his lips, and “Here am I; send me.” His commission is to a people who will hear and not understand, words Jesus quotes in Matthew 13:14–15.'],
+['Meeting Ahaz','Isa 7:1–9','At the conduit of the upper pool, with his son Shear-jashub, “a remnant shall return.” Rezin and Pekah are two smoking stubs of firebrands. “If ye will not believe, surely ye shall not be established.”'],
+['Immanuel','Isa 7:10–17','Ahaz piously refuses to ask a sign. Isaiah gives one anyway: a virgin shall conceive, and bear a son, and shall call his name Immanuel. Matthew 1:23 applies it to Christ.'],
+['Maher-shalal-hash-baz','Isa 8:1–4','Another son with a sign-name, “speed the spoil, hasten the prey”: before the boy can say “mother,” Assyria will plunder Damascus and Samaria.'],
+['“The people that walked in darkness”','Isa 9:1–7','Galilee of the nations sees a great light, and a child is born: Wonderful, Counsellor, the mighty God, the everlasting Father, the Prince of Peace. Matthew 4:15–16 quotes the opening.'],
+['Assyria, the rod of my anger','Isa 10:5–19','God uses Assyria to punish Israel, then punishes Assyria for its arrogance: shall the axe boast against the one who swings it?'],
+['The shoot from the stump of Jesse','Isa 11:1–10','The Spirit of the Lord rests on him, wisdom, understanding, counsel, might, knowledge and fear of the Lord; the Greek and Latin add piety, giving the seven gifts of the Holy Spirit. The wolf lies down with the lamb.'],
+['Oracles against the nations','Isa 13–23','Babylon, Assyria, Philistia, Moab, Damascus, Egypt, Tyre. In chapter 20 Isaiah goes barefoot and stripped for three years as a sign against trusting Egypt.'],
+['Sennacherib at the gates','Isa 36–37','The Assyrian envoy stands at the same conduit of the upper pool where Isaiah met Ahaz, mocking trust in the Lord. Hezekiah spreads the threatening letter before the Lord in the Temple, Isaiah answers, and the angel of the Lord strikes the Assyrian camp.'],
+['Hezekiah’s illness','Isa 38','“Set thine house in order.” Hezekiah prays and weeps; fifteen years are added, and the shadow goes back ten steps on the stairway of Ahaz. His song of thanksgiving follows.'],
+['The envoys from Babylon','Isa 39','Hezekiah shows them everything in his treasury. Isaiah: all of it will be carried to Babylon, and some of your sons will be eunuchs there.'],
+['“Comfort ye my people”','Isa 40','The voice crying in the wilderness, which all four Gospels apply to John the Baptist. All flesh is grass, but the word of our God stands forever. They that wait on the Lord shall renew their strength.'],
+['Cyrus, the Lord’s anointed','Isa 44:28–45:7','The Persian king who would let the exiles go home is named as God’s shepherd and anointed, the one who will say to Jerusalem, “Thou shalt be built.”'],
+['The servant songs','Isa 42:1–9; 49:1–6; 50:4–9; 52:13–53:12','Four poems about the Lord’s servant. The last is the one read on Good Friday: despised and rejected of men, wounded for our transgressions, led as a lamb to the slaughter.'],
+['“Arise, shine; for thy light is come”','Isa 60','Nations come to Jerusalem’s light, bringing gold and incense: the first reading at Epiphany.'],
+['“The Spirit of the Lord God is upon me”','Isa 61:1–3','Good tidings to the meek, liberty to the captives. Jesus reads it in the synagogue at Nazareth and says, “This day is this scripture fulfilled” (Luke 4:16–21).'],
+['New heavens and a new earth','Isa 65:17–25; 66','The book ends with a new creation and all flesh coming to worship before the Lord.']
+],
+micah:[
+['Concerning Samaria and Jerusalem','Mic 1:1–7','In the days of Jotham, Ahaz and Hezekiah. The Lord comes down, and Samaria becomes a heap of rubble, her idols beaten to pieces.'],
+['A lament over the towns','Mic 1:8–16','He goes stripped and barefoot, wailing, and puns on the names of Judean towns in the invader’s path, Lachish among them.'],
+['Woe to the land-grabbers','Mic 2:1–5','They lie awake planning evil and do it at dawn: they covet fields and seize them, houses and take them.'],
+['“Prophesy ye not”','Mic 2:6–11','The people tell him to stop preaching. A prophet who promised them wine and strong drink, he says, would suit them fine.'],
+['The remnant gathered','Mic 2:12–13','God will gather Israel like sheep in a fold, and the one who breaks through will go up before them, with their king and the Lord at their head.'],
+['Rulers who eat the flesh of my people','Mic 3:1–4','They hate good and love evil; they flay the people and chop them like meat for the pot.'],
+['Prophets for hire','Mic 3:5–8','They cry peace when they are fed and declare war on anyone who doesn’t feed them. Micah, by contrast, is full of power by the Spirit of the Lord, to declare to Israel his sin.'],
+['Zion plowed like a field','Mic 3:9–12','Judges take bribes, priests teach for hire, prophets divine for money, and all say the Lord is among us. So Zion will be plowed as a field. A century later this verse saved Jeremiah’s life (Jer 26:18).'],
+['Swords into plowshares','Mic 4:1–5','The same oracle as Isaiah 2, with one addition: every man shall sit under his vine and under his fig tree, and none shall make him afraid.'],
+['To Babylon and back','Mic 4:10','There you will be rescued: Babylon named as the place of exile and of redemption, a century before it happened.'],
+['Bethlehem Ephratah','Mic 5:2–5 (5:1–4 in NABRE)','Little among the clans of Judah, yet out of it shall come a ruler whose goings forth have been from of old, and he shall be the peace. The chief priests quote it to Herod (Matthew 2:6).'],
+['“O my people, what have I done unto thee?”','Mic 6:1–5','The Lord brings a case against Israel and recalls the Exodus. These words became the Reproaches of the Good Friday liturgy: Popule meus, quid feci tibi.'],
+['“What doth the Lord require of thee?”','Mic 6:6–8','Not thousands of rams or rivers of oil or a firstborn child, but to do justly, to love mercy, and to walk humbly with thy God.'],
+['Lament and trust','Mic 7:1–7','No one upright is left; a man’s enemies are the men of his own house (quoted in Matthew 10:36). Therefore I will look unto the Lord.'],
+['“Who is a God like unto thee?”','Mic 7:18–20','He pardons iniquity, delights in mercy, and casts all their sins into the depths of the sea. The question plays on Micah’s own name.']
+],
+oded:[
+['The war','2 Chr 28:5–8','Pekah kills 120,000 men of Judah in one day, and Israel carries off 200,000 women and children with plunder toward Samaria.'],
+['The prophet meets the army','2 Chr 28:9–11','God was angry with Judah, he tells them, but you killed in a rage that reaches up to heaven, and now you mean to enslave your own kin. Send them back.'],
+['The northern chiefs agree','2 Chr 28:12–13','Four named leaders of Ephraim back Oded and refuse to let the captives into the city.'],
+['Clothed, fed and carried home','2 Chr 28:14–15','The spoil is used to clothe and shoe the captives; they are fed, given drink and anointed, the weak are put on donkeys, and all are taken to Jericho, the city of palm trees.']
+],
+nahum:[
+['The vision of Nahum the Elkoshite','Nah 1:1','An oracle concerning Nineveh. Nothing else is known about him.'],
+['Slow to anger, but just','Nah 1:2–8','He echoes the same description of God from Exodus 34 that Jonah quoted, but now its other half: he will not acquit the wicked. The Lord is good, a stronghold in the day of trouble.'],
+['Good tidings','Nah 1:15 (2:1 in NABRE)','Behold upon the mountains the feet of him that bringeth good tidings, that publisheth peace, the same image as Isaiah 52:7.'],
+['The siege','Nah 2','Chariots rage through the streets, the river gates are thrown open, and the palace melts away. Where is the den of the lions now?'],
+['Woe to the bloody city','Nah 3:1–7','A city full of lies and plunder, its streets heaped with corpses.'],
+['Are you better than Thebes?','Nah 3:8–10','Thebes, the great city of Egypt, fell to Assyria itself in 663. Nineveh will fare no better.'],
+['A question to end on','Nah 3:18–19','Everyone who hears the news claps their hands, for who has not felt your cruelty? Like Jonah, the book ends on a question.']
+],
+zephaniah:[
+['A royal pedigree','Zeph 1:1','Son of Cushi, back four generations to Hizkiah, probably King Hezekiah. He prophesied in the days of Josiah.'],
+['Sweeping judgment','Zeph 1:2–6','The remnant of Baal, the idol priests, those who bow to the stars on their rooftops, and those who swear by the Lord and by Molech at once.'],
+['Searching Jerusalem with lamps','Zeph 1:12','God will search out the complacent, who say the Lord will do neither good nor evil.'],
+['The great day of the Lord','Zeph 1:14–18','A day of wrath, trouble and distress, darkness and gloom. In Latin, dies irae, dies illa: the opening of the medieval sequence once sung at every Requiem Mass.'],
+['Seek meekness','Zeph 2:1–3','Seek righteousness and humility; it may be you will be hidden on the day of the Lord’s anger.'],
+['Against the nations','Zeph 2:4–15','Philistia, Moab, Ammon, Cush and Assyria. Nineveh will be a desolation where flocks lie down.'],
+['Woe to the city','Zeph 3:1–8','Her princes are roaring lions, her judges evening wolves, her prophets reckless, her priests have profaned the sanctuary.'],
+['A pure language','Zeph 3:9–13','The nations will call on the name of the Lord, and a humble, lowly remnant will be left in Israel, trusting in him.'],
+['“Sing, O daughter of Zion”','Zeph 3:14–20','The Lord your God in your midst will rejoice over you with joy, rest in his love, and joy over you with singing. Read in Advent.']
+],
+huldah:[
+['The book is found','2 Kgs 22:8–13','The high priest Hilkiah finds the Book of the Law during the Temple repairs. When it is read to Josiah, he tears his clothes and sends five officials to inquire of the Lord.'],
+['Who she was','2 Kgs 22:14','Wife of Shallum, keeper of the royal wardrobe, living in the Second Quarter of Jerusalem.'],
+['Judgment confirmed','2 Kgs 22:15–17','“Tell the man that sent you”: everything written in the book will come on this place, because they forsook the Lord.'],
+['Mercy for the king','2 Kgs 22:18–20','Because Josiah’s heart was tender and he humbled himself, he will be gathered to his grave in peace and not see the disaster.'],
+['What it sets in motion','2 Kgs 23:1–25','Josiah reads the book to the whole people, renews the covenant, purges Judah and Bethel, and keeps the Passover.']
+],
+jeremiah:[
+['The call','Jer 1:4–10','Before I formed thee in the belly I knew thee. He protests that he is only a child; God touches his mouth and sets him over nations, to root out and pull down, to build and to plant.'],
+['The almond branch and the boiling pot','Jer 1:11–16','An almond branch (shaqed) because God is watching (shoqed) over his word, and a pot boiling over from the north.'],
+['Broken cisterns','Jer 2:13','My people have forsaken me, the fountain of living waters, and dug themselves cisterns that can hold no water.'],
+['The Temple sermon','Jer 7:1–15; 26','At the Temple gate: don’t trust in the words “The temple of the Lord” while you steal and murder. Is this house a den of robbers? (Jesus quotes it in Matthew 21:13.) In chapter 26 he is put on trial for his life and saved when elders cite Micah.'],
+['“Is there no balm in Gilead?”','Jer 8:18–9:1','Oh that my head were waters, and mine eyes a fountain of tears. Here you can see why he is called the weeping prophet.'],
+['The ruined belt','Jer 13:1–11','He hides a linen belt by the Euphrates and digs it up rotten: so God will ruin the pride of Judah.'],
+['No wife, no mourning, no feasting','Jer 16:1–9','He is forbidden to marry or attend funerals or weddings, as a sign of what is coming.'],
+['At the potter’s house','Jer 18:1–12','The clay spoils in the potter’s hand and he makes it into another vessel: so God can do with Israel.'],
+['The broken flask and the stocks','Jer 19–20','He smashes a clay flask in the valley of Hinnom. The priest Pashhur beats him and puts him in the stocks. Then his bitterest lament: the word is like a fire shut up in my bones, and cursed be the day I was born.'],
+['Against the kings','Jer 22','Weep for Shallum, who will never come home; woe to Jehoiakim, who builds his palace by unrighteousness; write Coniah childless, for none of his seed will sit on David’s throne.'],
+['The righteous Branch','Jer 23:5–6','A son of David who will reign wisely, named The Lord Our Righteousness.'],
+['Two baskets of figs','Jer 24','The good figs are the exiles taken with Jehoiachin; the bad figs are Zedekiah and those left in Jerusalem.'],
+['Seventy years','Jer 25:11–12','Judah will serve Babylon seventy years. Daniel is reading this when he prays in Daniel 9.'],
+['The yoke and Hananiah','Jer 27–28','He wears a wooden yoke to say submit to Babylon. The prophet Hananiah breaks it and promises everyone home in two years. Jeremiah answers that wood will be replaced with iron, and Hananiah dies that same year.'],
+['Letter to the exiles','Jer 29:4–14','Build houses, plant gardens, marry, and seek the peace of the city where you are captive. “I know the thoughts that I think toward you … to give you an expected end.”'],
+['Rachel weeping; the new covenant','Jer 31:15, 31–34','Rachel weeping for her children (Matthew 2:18), and the promise of a new covenant written on the heart, quoted at length in Hebrews 8.'],
+['The field at Anathoth','Jer 32','With Babylon at the walls and Jeremiah under arrest, he buys his cousin Hanamel’s field and seals the deed in a clay jar: houses and fields will be bought again in this land.'],
+['The Rechabites','Jer 35','A family that refuses wine out of loyalty to their ancestor’s command, held up against a Judah that won’t keep God’s.'],
+['The scroll burned','Jer 36','Read aloud to Jehoiakim in his winter house beside a fire. Every few columns the king cuts them off with a knife and throws them in. Baruch writes it all out again, with more added.'],
+['The cistern','Jer 37–38','Arrested as a deserter, then lowered into a cistern where he sinks into the mud. Ebed-melech, an Ethiopian court official, pulls him out with ropes padded with old rags. Zedekiah keeps meeting him in secret.'],
+['The city falls','Jer 39; 52','Nebuzaradan, Babylon’s commander, frees him and lets him choose where to go.'],
+['Gedaliah and the flight to Egypt','Jer 40–43','He stays with the new governor Gedaliah, who is murdered. The survivors ask Jeremiah for a word from the Lord, promise to obey it, then ignore it and take him to Egypt.'],
+['Last words in Egypt','Jer 44','He condemns the refugees’ worship of the queen of heaven. These are his last recorded words.'],
+['Jehoiachin lifted up','Jer 52:31–34','The book closes, like Kings, with the exiled king freed from prison and fed at Babylon’s table.']
+],
+uriah:[
+['A second Jeremiah','Jer 26:20','Son of Shemaiah, from Kiriath-jearim, prophesying against the city in the same words as Jeremiah.'],
+['The flight','Jer 26:21','When Jehoiakim tries to kill him, he runs to Egypt.'],
+['Extradited and executed','Jer 26:22–23','The king sends Elnathan son of Achbor to bring him back, and kills him with the sword. His body is thrown into the common burial ground. Elnathan’s father had been in Josiah’s delegation to Huldah.'],
+['Why Jeremiah lived','Jer 26:24','Ahikam son of Shaphan protects Jeremiah. Ahikam’s son Gedaliah later becomes governor after the fall.']
+],
+habakkuk:[
+['“O Lord, how long?”','Hab 1:1–4','Violence and injustice everywhere, the law is paralyzed, and God doesn’t seem to act.'],
+['The answer: the Chaldeans','Hab 1:5–11','I am doing a work you would not believe if you were told (Paul quotes it in Acts 13:41): raising up the Babylonians, bitter and hasty, horses swifter than leopards.'],
+['The second complaint','Hab 1:12–17','You are of purer eyes than to behold evil, so how can you watch the wicked swallow people more righteous than they are, scooping them up like fish in a net?'],
+['On the watchtower','Hab 2:1–3','Write the vision, and make it plain upon tables, that he may run that readeth it. Though it tarry, wait for it.'],
+['“The just shall live by his faith”','Hab 2:4','The verse Paul builds on in Romans 1:17 and Galatians 3:11; Hebrews 10:38 quotes it too.'],
+['Five woes','Hab 2:6–20','On the plunderer, the one who builds a city with blood, the one who gets his neighbor drunk, and the idol-maker. The earth will be filled with the knowledge of the glory of the Lord, and the Lord is in his holy temple: let all the earth keep silence before him.'],
+['The prayer','Hab 3:1–16','A psalm of God marching out from Teman in power. “In wrath remember mercy.”'],
+['“Yet I will rejoice in the Lord”','Hab 3:17–19','Though the fig tree does not blossom and there is no fruit on the vine, no olives, no grain, no flock, no herd. He makes my feet like hinds’ feet on the heights.'],
+['Lunch for Daniel','Dan 14:33–39','In the Greek additions to Daniel, an angel carries Habakkuk by the hair to Babylon to bring Daniel his meal in the lions’ den.']
+],
+baruch:[
+['Witness to the field purchase','Jer 32:12–16','Jeremiah hands him the sealed deed to store in a clay jar so it will last many days.'],
+['Writing the scroll','Jer 36:4–10','He writes Jeremiah’s prophecies at dictation and, on a fast day, reads them aloud at the Temple from the chamber of Gemariah.'],
+['Before the officials','Jer 36:11–19','The king’s officials hear it, are afraid, and tell Baruch and Jeremiah to go into hiding before they report to the king.'],
+['Burned and rewritten','Jer 36:20–32','After Jehoiakim burns the scroll, Baruch writes it all out again, and many similar words are added.'],
+['Accused and taken to Egypt','Jer 43:1–7','The survivors claim Baruch turned Jeremiah against them, and take both men to Egypt.'],
+['A word for Baruch','Jer 45','“Woe is me now!” he says. God answers: seekest thou great things for thyself? Seek them not. But your life I will give you as a prize wherever you go.'],
+['The book read to the exiles','Bar 1:1–14','Read in Babylon to Jehoiachin and the exiles, then sent to Jerusalem with money for offerings.'],
+['The confession','Bar 1:15–3:8','To the Lord belongs righteousness, to us shame of face: a long prayer of repentance, close in spirit to Daniel 9.'],
+['Wisdom','Bar 3:9–4:4','Hear, O Israel, the commandments of life. Wisdom is the book of the commandments of God. Read at the Easter Vigil.'],
+['“Take courage, Jerusalem”','Bar 4:5–5:9','Put off the garment of mourning and put on the splendor of glory from God. Read on the Second Sunday of Advent in Year C.'],
+['The Letter of Jeremiah','Bar 6','A long mockery of idols in Babylon, which cannot speak, see, or save themselves from rust.']
+],
+daniel:[
+['Taken to Babylon','Dan 1:1–7','In Jehoiakim’s third year, with Hananiah, Mishael and Azariah, all renamed: he becomes Belteshazzar, and they become Shadrach, Meshach and Abednego.'],
+['Vegetables and water','Dan 1:8–21','He refuses the king’s food and wine. After a ten-day test the four look healthier than the young men eating from the king’s table.'],
+['The great statue','Dan 2','Gold, silver, bronze, iron and clay, smashed by a stone cut without hands that becomes a mountain filling the earth. Daniel interprets it, and the king falls on his face.'],
+['The fiery furnace','Dan 3:1–30','The three refuse to bow to the golden image: our God is able to deliver us, but if not, we still won’t bow. A fourth figure walks with them in the fire.'],
+['The Song of the Three','Dan 3:24–90 (Catholic Bibles)','The Prayer of Azariah and the hymn the three sing in the furnace, “Bless the Lord, all you works of the Lord,” prayed at Sunday Morning Prayer.'],
+['Nebuchadnezzar’s madness','Dan 4','A dream of a great tree cut down. The king, boasting over Babylon, is driven out to eat grass like an ox until he acknowledges that the Most High rules.'],
+['The writing on the wall','Dan 5','Belshazzar drinks from the Temple vessels; a hand writes Mene, Mene, Tekel, Upharsin. Weighed and found wanting. That night the city falls.'],
+['The lions’ den','Dan 6','Officials trap him with a law against prayer. He keeps praying three times a day toward Jerusalem, and an angel shuts the lions’ mouths.'],
+['One like the Son of man','Dan 7','Four beasts from the sea; the Ancient of Days enthroned; one like the Son of man coming with the clouds of heaven, given an everlasting kingdom. Jesus’ favorite title for himself comes from here.'],
+['The ram and the goat','Dan 8','Persia and Greece, interpreted by the angel Gabriel, his first appearance in Scripture.'],
+['The prayer and the seventy weeks','Dan 9','Reading Jeremiah’s seventy years, Daniel confesses the people’s sins, and Gabriel brings a vision of seventy weeks of years.'],
+['The last vision','Dan 10–12','The kings of the north and south, Michael the great prince, and the first clear promise of resurrection: many who sleep in the dust shall awake (12:2).'],
+['Susanna','Dan 13','Two elders falsely accuse a virtuous woman. The young Daniel cross-examines them separately, under which tree?, and their stories don’t match.'],
+['Bel and the Dragon','Dan 14','Ashes scattered on the temple floor reveal the priests’ footprints where they sneaked in to eat Bel’s offerings. Back in the lions’ den, Daniel is fed by Habakkuk.']
+],
+ezekiel:[
+['By the river Chebar','Ezek 1:1–3','In the fifth year of Jehoiachin’s captivity, 593 BC, among the exiles in Babylonia.'],
+['The throne-chariot','Ezek 1:4–28','Four living creatures with faces of a man, lion, ox and eagle (later the symbols of the four Evangelists), wheels within wheels full of eyes, and a throne above them: the appearance of the likeness of the glory of the Lord.'],
+['Eat this scroll','Ezek 2:1–3:15','Called “son of man” and sent to a rebellious house. He eats a scroll written with lamentation and woe, and it tastes as sweet as honey (compare Revelation 10).'],
+['The watchman','Ezek 3:16–21; 33:1–9','If he warns the wicked and they don’t turn, they die in their sin; if he fails to warn them, their blood is on his hands.'],
+['Acting out the siege','Ezek 4–5','He draws Jerusalem on a clay brick and lays siege to it, lies on his left side 390 days and his right side 40, eats rationed bread, and shaves his head, dividing the hair in three.'],
+['Idolatry in the Temple','Ezek 8','Carried in a vision by a lock of his hair to Jerusalem: idols carved on the walls, women weeping for Tammuz, twenty-five men with their backs to the Temple worshiping the sun.'],
+['The mark on the foreheads','Ezek 9','A man with a scribe’s inkhorn marks those who sigh and cry over the abominations; everyone else is struck down. The mark is the Hebrew letter tav.'],
+['The glory departs','Ezek 10–11','The glory of the Lord leaves the threshold, then the east gate, then the city, and stops on the mountain to the east. Even so: I will give them a heart of flesh (11:19).'],
+['Baggage for exile','Ezek 12','He packs an exile’s bag and digs through the wall at dusk: a preview of Zedekiah’s flight.'],
+['Whitewashed walls','Ezek 13','False prophets cry peace when there is no peace, and paper over a cracked wall with whitewash.'],
+['Noah, Daniel and Job','Ezek 14:12–20','Even these three righteous men could save only themselves.'],
+['The foundling','Ezek 16','Jerusalem as an abandoned newborn whom God rescues, raises and marries, and who then turns prostitute. It ends with an everlasting covenant.'],
+['Sour grapes','Ezek 18','The fathers have eaten sour grapes, and the children’s teeth are set on edge. Not anymore: each soul answers for itself. I have no pleasure in the death of him that dieth: turn and live.'],
+['The death of his wife','Ezek 24:15–27','The desire of his eyes dies on the day the siege of Jerusalem begins, and he is told not to mourn: a sign of the shock to come.'],
+['Against the nations','Ezek 25–32','Ammon, Moab, Edom, Philistia, and long laments over Tyre, its proud king, and Egypt.'],
+['“The city is smitten”','Ezek 33:21–22','A survivor arrives with the news that Jerusalem has fallen, and Ezekiel’s mouth is opened.'],
+['Shepherds','Ezek 34','Woe to the shepherds who feed themselves. God himself will seek the lost and bind up the broken, and set over them one shepherd, “my servant David.” The background to John 10.'],
+['A new heart','Ezek 36:24–28','I will sprinkle clean water upon you, take away the heart of stone, and give you a heart of flesh. Read at the Easter Vigil.'],
+['The valley of dry bones','Ezek 37:1–14','Can these bones live? Bone comes to bone, flesh covers them, and breath enters them.'],
+['Two sticks made one','Ezek 37:15–28','Judah and Joseph joined in his hand: the divided kingdom made one again under one king.'],
+['Gog of Magog','Ezek 38–39','A final assault of the nations on restored Israel, defeated by God. Revelation 20 borrows the names.'],
+['The new Temple','Ezek 40–48','Measured out in vision. The glory returns through the east gate (43); a river flows from under the threshold, deepening as it goes, with trees whose leaves are for healing (47; Revelation 22). The city’s name: The Lord is there.']
+],
+joel:[
+['The locust plague','Joel 1','Four waves of locusts strip the land, and the grain offering and drink offering are cut off from the Temple. Tell your children of it; call a solemn assembly.'],
+['The army of the Lord','Joel 2:1–11','Blow the trumpet in Zion. The locusts advance like an army, the sun and moon go dark, and the day of the Lord is great and very terrible.'],
+['“Rend your heart, and not your garments”','Joel 2:12–17','Turn to the Lord, for he is gracious and merciful (the Exodus 34 words again). Let the priests weep between the porch and the altar. The first reading on Ash Wednesday.'],
+['The years the locust hath eaten','Joel 2:18–27','God pities his people and promises to restore everything the swarms destroyed.'],
+['“I will pour out my spirit upon all flesh”','Joel 2:28–32 (3:1–5 in NABRE)','Sons and daughters shall prophesy, old men dream dreams, young men see visions. Peter quotes it at Pentecost (Acts 2:16–21).'],
+['The valley of Jehoshaphat','Joel 3 (4 in NABRE)','The nations are gathered for judgment. Here plowshares are beaten into swords, the reverse of Isaiah and Micah, but it ends with the mountains dripping new wine.']
+],
+obadiah:[
+['Pride on the rock','Obad 1–4','Edom lives in the clefts of the rock, probably the cliffs around Sela, near later Petra. Though you build your nest among the stars, I will bring you down.'],
+['Stripped bare','Obad 5–9','Thieves leave something behind; Edom’s hidden treasures will be searched out completely, and its allies will turn on it.'],
+['The brother’s betrayal','Obad 10–14','For violence against your brother Jacob. You stood aloof, gloated, entered the gate, looted, and stood at the crossroads to cut off the refugees.'],
+['As thou hast done','Obad 15–16','The day of the Lord is near on all nations: as you have done, it shall be done to you.'],
+['The kingdom shall be the Lord’s','Obad 17–21','Deliverance on Mount Zion; the house of Jacob a fire and Esau stubble. Saviors go up to Zion to judge the mount of Esau.']
+]
 };
 const ERAS=[
 {t:'Before the split',n:'2 Samuel and 1 Kings 1. The promise the rest of the story hangs on.',ids:['nathan']},
@@ -703,7 +1061,7 @@ function guideCard(id){
   const book=p.book?`Book: ${p.book}.`:`No book of ${p.fem?'her':'his'} own.`;
   const col=p._c!=null?` pc${p._c}`:'';
   const back=p.undated?'':`<button type='button' class='g-back' data-go='${id}'>Show on the chart</button>`;
-  return `<article class='g to-${p.to}${col}' id='guide-${id}'><h4 tabindex='-1'>${p.name}</h4><p class='g-meta'>${dates(p)}. Sent to ${sent}. ${book}</p><p>${p.sum}</p><h5>Confronted</h5><p>${g.c}</p><h5>Key moments</h5><ol class='g-m'>${g.m.map(m=>`<li>${m[0]} <cite>${m[1]}</cite></li>`).join('')}</ol><h5>Reading path</h5><p>${g.r}</p><h5>As you read</h5><p>${g.t}</p>${back}</article>`;
+  return `<article class='g to-${p.to}${col}' id='guide-${id}'><h4 tabindex='-1'>${p.name}</h4><p class='g-meta'>${dates(p)}. Sent to ${sent}. ${book}</p><p>${p.sum}</p><h5>Confronted</h5><p>${g.c}</p><h5>Key moments</h5><ol class='g-m'>${(MOM[id]||g.m).map(m=>`<li><b>${m[0]}</b> <cite>${m[1]}</cite>${m[2]?`<span class='g-d'>${m[2]}</span>`:''}</li>`).join('')}</ol><h5>Reading path</h5><p>${g.r}</p><h5>As you read</h5><p>${g.t}</p>${back}</article>`;
 }
 function goGuide(id){
   const a=document.getElementById('guide-'+id); if(!a) return;
