@@ -168,6 +168,25 @@ select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper-2);bo
 .clashes article p{margin:0 0 4px}
 .notes p{font-size:16px;color:var(--ink-soft);margin:0 0 10px}
 
+/* Prophet guide */
+.g-nav{margin:6px 0;line-height:1.9}
+.g-nav span{font-style:italic;color:var(--ink-soft);margin-right:6px;font-size:15px}
+.g-era{font-size:1.3rem;font-weight:600;margin:44px 0 2px}
+.g-era-n{margin:0 0 6px;color:var(--ink-soft);font-style:italic;font-size:16px}
+.g{border-left:4px solid var(--pc);padding:4px 0 6px 16px;margin:22px 0 34px;border-radius:0 4px 4px 0}
+@media (prefers-reduced-motion:no-preference){ .g{transition:background-color .8s ease} }
+.g.flash{background:var(--prophet-tint)}
+.g h4{font-size:1.6rem;font-weight:500;line-height:1.1;margin:0;outline:none}
+.g .g-meta{margin:3px 0 10px;color:var(--ink-soft);font-style:italic;font-size:16px}
+.g h5{font-size:1rem;font-weight:600;font-style:italic;margin:16px 0 2px}
+.g p{margin:0 0 6px}
+.g-m{margin:4px 0 0;padding-left:1.3em}
+.g-m li{margin:0 0 6px}
+.g-m cite{font-style:normal;color:var(--ink-soft);font-size:15px;font-variant-numeric:lining-nums}
+.g-back{margin-top:8px;font-size:15px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
+.guide-link{display:inline-block;margin:4px 0 4px;padding:5px 14px;border:1px solid var(--prophet);color:var(--prophet);border-radius:999px;font-size:16px}
+.guide-link:hover{background:var(--prophet-tint)}
+
 /* Detail sheet */
 .sheet{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--sheet);border-top:1px solid var(--rule);box-shadow:var(--shadow);max-height:min(66vh,680px);overflow-y:auto;overscroll-behavior:contain;transform:translateY(105%);padding:16px 20px calc(22px + env(safe-area-inset-bottom,0px))}
 .sheet.open{transform:none}
@@ -201,7 +220,7 @@ select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper-2);bo
 
 <header class="wrap">
   <h1>The Divided Kingdom</h1>
-  <p class="lede">Who sat on which throne, how each one got there, and which prophets were sent to them, from the split in 1 Kings 12 to the fall of Jerusalem in 2 Kings 25, with the parallels in 2 Chronicles. Choose the chapter you’re reading to light up who’s in it. Tap any name for the details.</p>
+  <p class="lede">Who sat on which throne, how each one got there, and which prophets were sent to them, from the split in 1 Kings 12 to the fall of Jerusalem in 2 Kings 25, with the parallels in 2 Chronicles. Choose the chapter you’re reading to light up who’s in it. Tap any name for the details. Each prophet also has a reading guide further down the page.</p>
   <div class="ledger grid">
     <p class="lj"><b>Judah</b>The south, ruled from Jerusalem. Nineteen kings and one queen; every one but the queen a son of David. Fell to Babylon, 586.</p>
     <p class="lp"><b>Prophets</b>Sent to both kingdoms, and finally to the exiles.</p>
@@ -246,13 +265,15 @@ select{font:inherit;font-size:16px;color:var(--ink);background:var(--paper-2);bo
   </section>
 
   <div class="lower">
+    <h2 id="prophets">The prophets</h2>
+    <p>Who each one confronted, the moments to know, and where to read, in the order they appear. Tap a name to jump to that prophet’s guide.</p>
+    <div id="g-nav"></div>
+    <div id="guide"></div>
+
     <h2>Same name, different person</h2>
     <p>The main reason 2 Kings is hard to follow. These are the pairs that trip people up.</p>
     <div class="clashes" id="clashes"></div>
 
-    <h2>Prophets without a fixed date</h2>
-    <p>Two prophetic books name no king, so they can’t be pinned to the chart.</p>
-    <div id="undated"></div>
 
     <h2>Notes</h2>
     <div class="notes">
@@ -375,6 +396,48 @@ const CLASH = [
 {t:"Ben-hadad, Pul and Tiglath-pileser",ids:["asa","ahab","jehoash_i","menahem"],d:"Not kings of Israel or Judah, but they cause confusion. At least two, probably three, kings of Syria at Damascus carry the name Ben-hadad: one bribed by Asa, one who fought Ahab, and Hazael’s son, who lost to Jehoash. Pul and Tiglath-pileser in 2 Kgs 15 are the same Assyrian king."}
 ];
 
+const GUIDE={
+nathan:{c:'David, over Bathsheba and Uriah; later Adonijah’s bid for the throne.',m:[['God’s covenant with David: a house and a throne forever','2 Sam 7'],['The parable of the poor man’s lamb, and “Thou art the man”','2 Sam 12:1–15'],['Gets Solomon crowned before Adonijah can take the throne','1 Kgs 1']],r:'2 Samuel 7, then 2 Samuel 12:1–25, then 1 Kings 1.',t:'Keep 2 Samuel 7 in mind for all of Kings. Every time Judah survives a bad king “for David’s sake,” the writer is pointing back to Nathan’s promise.'},
+ahijah:{c:'Jeroboam, the first king of the north, and later his wife, who came to him in disguise.',m:[['Tears his new cloak into twelve pieces and gives Jeroboam ten','1 Kgs 11:29–39'],['Old and blind, sees through the queen’s disguise and foretells the end of Jeroboam’s house','1 Kgs 14:1–18'],['Fulfilled when Baasha wipes out the family','1 Kgs 15:29']],r:'1 Kings 11:26–40, then 14:1–20.',t:'His first promise to Jeroboam was conditional: walk in my ways as David did and I will build you a lasting house (11:38). Chapter 14 is the same prophet delivering the other half of that condition.'},
+shemaiah:{c:'Rehoboam and the army he raised to win back the north; later Rehoboam and the princes of Judah.',m:[['Stops 180,000 men from marching on Israel, because the split is the Lord’s doing','1 Kgs 12:21–24'],['Announces Shishak’s invasion as judgment; the king humbles himself','2 Chr 12:1–8']],r:'1 Kings 12:21–24, then 2 Chronicles 11:1–4 and 12:1–12.',t:'The army listens and goes home. It is one of the few times in these books that a whole army obeys a prophet.'},
+man_of_god:{c:'Jeroboam, at the altar he set up at Bethel.',m:[['Cries out against the altar and names Josiah three centuries early; the altar splits and the king’s hand withers','1 Kgs 13:1–10'],['Deceived by an old prophet into breaking his orders, then killed by a lion','1 Kgs 13:11–32'],['Josiah burns bones on that altar but spares this man’s grave','2 Kgs 23:15–18']],r:'1 Kings 13, then jump ahead to 2 Kings 23:15–20 to see it come true.',t:'A strange story on a first read. The point seems to be that the word outlasts the messenger: the prophet fails, but what he said about Bethel still happens. It is also a warning about trusting a “prophet” over what God has already said.'},
+azariah_o:{c:'King Asa and the people of Judah and Benjamin.',m:[['Meets Asa after the victory over Zerah: seek the Lord and he will be found','2 Chr 15:1–7'],['Asa’s reform and covenant renewal follow','2 Chr 15:8–19']],r:'2 Chronicles 14–15.',t:'Chronicles only. Read it next to the much shorter account of Asa in 1 Kings 15:9–24.'},
+hanani:{c:'King Asa, for paying Syria instead of trusting the Lord.',m:[['Rebukes Asa: the eyes of the Lord run to and fro through the whole earth','2 Chr 16:7–9'],['Asa jails him in anger','2 Chr 16:10']],r:'2 Chronicles 16.',t:'Compare Azariah one chapter earlier. Same king, opposite response: Asa listens to the first prophet and jails the second.'},
+jehu_p:{c:'Baasha of Israel; decades later, Jehoshaphat of Judah.',m:[['Announces that Baasha’s house will end like Jeroboam’s','1 Kgs 16:1–7'],['Rebukes Jehoshaphat for helping Ahab','2 Chr 19:1–3'],['His history of Jehoshaphat is cited as a source','2 Chr 20:34']],r:'1 Kings 16:1–13, then 2 Chronicles 19:1–3.',t:'Not King Jehu. This one is the son of Hanani the seer, and he outlived several kings.'},
+elijah:{c:'Ahab and Jezebel, the 450 prophets of Baal, Ahab’s son Ahaziah, and by letter Jehoram of Judah.',m:[['Announces the drought; fed by ravens at the brook Cherith','1 Kgs 17:1–7'],['The widow of Zarephath; her son raised','1 Kgs 17:8–24'],['Fire on Mount Carmel','1 Kgs 18'],['Flees to Horeb; the Lord in a still small voice; calls Elisha','1 Kgs 19'],['Confronts Ahab in Naboth’s vineyard','1 Kgs 21'],['Fire on the soldiers sent by Ahaziah','2 Kgs 1'],['Taken up in a whirlwind','2 Kgs 2:1–12']],r:'1 Kings 17–19 and 21, then 2 Kings 1–2. Afterward: Malachi 4:5–6 (3:23–24 in NABRE), Luke 1:17, and Matthew 17:1–13.',t:'Baal was worshiped as the god of storm and rain, so the drought and the fire on Carmel are aimed straight at him. At Horeb, which is Sinai, Elijah retraces Moses: forty days, the mountain, a cleft in the rock. The New Testament picks up both threads. John the Baptist comes in the spirit of Elijah, and Elijah stands with Moses at the Transfiguration.'},
+micaiah:{c:'Ahab and his 400 court prophets, with Jehoshaphat looking on.',m:[['Mocks the court prophets’ promise of victory, then tells the truth','1 Kgs 22:13–17'],['The vision of the heavenly council and the lying spirit','1 Kgs 22:19–23'],['Struck and jailed; Ahab dies as he said','1 Kgs 22:24–38']],r:'1 Kings 22:1–40. The same story is in 2 Chronicles 18.',t:'The clearest scene in Kings of true and false prophecy side by side. Four hundred agree; one is right. Jehoshaphat’s uneasy question in verse 7, whether there is no other prophet of the Lord, is what brings him in.'},
+jahaziel:{c:'No one. He brings Jehoshaphat and Judah encouragement before a battle.',m:[['The battle is not yours but God’s; stand still and see','2 Chr 20:14–17'],['The singers march ahead and the enemies destroy each other','2 Chr 20:20–30']],r:'2 Chronicles 20:1–30.',t:'A rare prophet in these books who brings only good news. Read Jehoshaphat’s prayer in verses 6–12 first; Jahaziel is the answer to it.'},
+elisha:{c:'Joram of Israel, Ben-hadad and Hazael of Syria, the Syrian general Naaman, his own servant Gehazi, and Jehoash at the end.',m:[['Called from the plow by Elijah’s cloak','1 Kgs 19:19–21'],['Asks for a double portion of Elijah’s spirit; parts the Jordan','2 Kgs 2:1–14'],['Heals Jericho’s spring; the boys at Bethel','2 Kgs 2:19–25'],['Water in the desert for three kings marching on Moab','2 Kgs 3'],['The widow’s oil, the Shunammite’s son raised, the poisoned stew, a hundred men fed with twenty loaves','2 Kgs 4'],['Naaman healed in the Jordan; Gehazi’s greed','2 Kgs 5'],['The floating axe head; Syria’s army struck blind; the siege of Samaria lifted','2 Kgs 6–7'],['Weeps as he tells Hazael he will be king of Syria','2 Kgs 8:7–15'],['Sends a young prophet to anoint Jehu','2 Kgs 9:1–13'],['The arrows at his deathbed; his bones raise a dead man','2 Kgs 13:14–21']],r:'1 Kings 19:19–21, then 2 Kings 2–9 straight through, then 2 Kings 13:14–21. Jesus mentions Naaman in Luke 4:27.',t:'The stories in 2 Kings 4–8 are grouped more by theme than by date, and the unnamed “king of Israel” in them is usually taken to be Joram. Watch for echoes of Elijah: both part the Jordan, both raise a mother’s son. Many also look ahead to the Gospels, especially the loaves in 2 Kings 4:42–44, where there is food left over.'},
+zechariah_p:{c:'King Joash of Judah and the princes who led him back to idols.',m:[['The Spirit comes on him: you have forsaken the Lord, so he has forsaken you','2 Chr 24:20'],['Stoned in the Temple court on the king’s order','2 Chr 24:21–22'],['Joash is killed by his own servants soon after','2 Chr 24:23–25']],r:'2 Chronicles 24, then Matthew 23:35 and Luke 11:51.',t:'Joash owed his life and his crown to this man’s father, and Chronicles makes the ingratitude the point (24:22). Jesus names him as the last martyr, from Abel to Zechariah, which runs from the first book of the Hebrew Bible to the last.'},
+jonah:{c:'Nineveh, the great Assyrian city, and, more than anyone, Jonah himself.',m:[['Foretells Jeroboam II’s restored borders','2 Kgs 14:25'],['Flees toward Tarshish; the storm and the great fish','Jonah 1'],['His prayer from inside the fish','Jonah 2'],['Nineveh repents, from the king down to the cattle','Jonah 3'],['Angry at God’s mercy; the plant that withers','Jonah 4']],r:'2 Kings 14:23–29, then all four chapters of Jonah in one sitting. Afterward: Matthew 12:38–41.',t:'The book ends with God asking Jonah a question, and Jonah never answers. Jesus calls his resurrection the sign of Jonah. For the other half of Nineveh’s story, read Nahum later.'},
+amos:{c:'Jeroboam II’s Israel: the rich of Samaria, the shrine at Bethel, and its priest Amaziah.',m:[['Oracles against the nations that circle in and land on Israel','Amos 1–2'],['You only have I known, therefore I will punish you','Amos 3:2'],['The “cows of Bashan” who crush the needy','Amos 4:1'],['The Day of the Lord is darkness; justice rolling down like waters','Amos 5:18–24'],['Woe to those at ease in Zion, lying on beds of ivory','Amos 6:1–7'],['Visions of locusts, fire and a plumb line','Amos 7:1–9'],['Confronted by Amaziah: I was no prophet, but a herdsman','Amos 7:10–17'],['A famine of hearing the word of the Lord','Amos 8:11–12'],['David’s fallen booth raised up again','Amos 9:11–15']],r:'Nine short chapters; read them all, with 2 Kings 14:23–29 as background. Acts 15:16–17 quotes the ending.',t:'Read chapters 1–2 the way the first audience heard them: applauding each judgment on their enemies until it reaches Judah and then Israel itself. The prosperity under Jeroboam II was real, and Amos is how we know what it cost the poor.'},
+hosea:{c:'Israel in its last thirty years: kings who took the throne by murder, priests who failed to teach, and the calf at Bethel, which he calls Beth-aven, “house of wickedness.”',m:[['Marries Gomer; their children are named Jezreel, Not Pitied and Not My People','Hos 1'],['God will woo Israel back in the wilderness','Hos 2:14–23 (2:16–25 in NABRE)'],['Buys Gomer back','Hos 3'],['My people are destroyed for lack of knowledge','Hos 4:6'],['I desired mercy, and not sacrifice','Hos 6:6'],['They have set up kings, but not by me','Hos 8:4'],['Out of Egypt I called my son','Hos 11:1'],['How shall I give thee up, Ephraim?','Hos 11:8–9'],['Return, O Israel','Hos 14']],r:'Chapters 1–3 first, since the marriage is the key to the rest. Then 4–14, a chapter at a time; it is poetry and doesn’t reward speed. Keep 2 Kings 15–17 open alongside it.',t:'Ephraim, Samaria and Israel all mean the northern kingdom. Hosea 7:7 says all their kings have fallen, which is exactly what you are watching in 2 Kings 15. Jesus quotes 6:6 twice (Matthew 9:13; 12:7), and Matthew applies 11:1 to the Holy Family coming back from Egypt. NABRE numbers chapter 2 differently, which shifts its verses by two.'},
+isaiah:{c:'Ahaz, who would not trust; Hezekiah, who did; Sennacherib’s envoy at the walls; and Jerusalem’s leaders throughout.',m:[['The song of the vineyard','Isa 5:1–7'],['The call: “Holy, holy, holy” and “Here am I; send me”','Isa 6'],['The Immanuel sign to Ahaz','Isa 7'],['“For unto us a child is born”','Isa 9:2–7 (9:1–6 in NABRE)'],['A shoot from the stump of Jesse','Isa 11:1–10'],['Sennacherib’s siege and the angel of the Lord','Isa 36–37'],['Hezekiah’s illness, his healing, and the envoys from Babylon','Isa 38–39'],['“Comfort ye my people”','Isa 40'],['The suffering servant','Isa 52:13–53:12']],r:'To follow Kings: Isaiah 6–8 with 2 Kings 16, and Isaiah 36–39 with 2 Kings 18–20. Then the whole book in three movements: 1–39, 40–55, 56–66.',t:'Isaiah 36–39 is nearly word for word 2 Kings 18–20, so it is the best place to see the prophets and the history books meet. From chapter 40 on, the book speaks to exiles in Babylon a century and a half later; many scholars credit those chapters to Isaiah’s later disciples, while tradition reads the whole book as his. Advent and Holy Week draw on him more than on any other prophet.'},
+micah:{c:'Landowners seizing fields and houses, rulers who “eat the flesh of my people,” and prophets who preach for pay, in Samaria and Jerusalem alike.',m:[['Judgment on Samaria and Jerusalem','Mic 1'],['Woe to those who covet fields and take them','Mic 2:1–2'],['Zion plowed like a field','Mic 3:12'],['Swords into plowshares','Mic 4:1–4'],['The ruler from Bethlehem','Mic 5:2 (5:1 in NABRE)'],['Do justly, love mercy, walk humbly with thy God','Mic 6:8'],['Who is a God like you?','Mic 7:18–20']],r:'Seven short chapters, read with 2 Kings 15:32–20:21. Jeremiah 26:16–19 shows how his words were remembered a century later.',t:'Micah’s name means “Who is like the Lord?” and the book ends by asking exactly that. He is Isaiah’s contemporary, but where Isaiah speaks from the court, Micah speaks from the countryside, and it shows. The swords-into-plowshares oracle appears in Isaiah 2 as well.'},
+oded:{c:'Israel’s army, coming home with captives taken from Judah.',m:[['Warns the soldiers that they have gone too far','2 Chr 28:9–11'],['The captives are clothed, fed and taken to Jericho','2 Chr 28:12–15']],r:'2 Chronicles 28.',t:'It sits in the middle of the Syria–Israel war against Ahaz, and it is one of the few moments of mercy between the two kingdoms in either book.'},
+nahum:{c:'Nineveh, capital of Assyria.',m:[['The Lord is slow to anger, but will not acquit the wicked','Nah 1:2–8'],['The feet of him that bringeth good tidings','Nah 1:15 (2:1 in NABRE)'],['The fall of Nineveh pictured','Nah 2–3'],['Are you better than Thebes?','Nah 3:8–10']],r:'Three chapters. Read them after Jonah.',t:'Same city, about a century later: the repentance in Jonah didn’t last. Nineveh fell in 612, and the book reads as relief for Judah, which had lived in Assyria’s shadow since Ahaz.'},
+zephaniah:{c:'Jerusalem’s officials, judges, prophets and priests, and those who worshiped Baal and the stars on their rooftops.',m:[['The great day of the Lord: dies irae, dies illa','Zeph 1:14–18'],['Oracles against the nations','Zeph 2'],['The Lord your God in your midst will rejoice over you with singing','Zeph 3:14–17']],r:'Three chapters, alongside 2 Kings 22–23.',t:'Read before Josiah’s reform, it sounds like the case for it. The ending is one of the most joyful passages in the prophets, and the Church reads it in Advent.'},
+huldah:{c:'Josiah’s officials, sent by the king after the Book of the Law was found.',m:[['Confirms that the curses of the book will fall on Judah','2 Kgs 22:14–17'],['Promises Josiah he will not see it, because he humbled himself','2 Kgs 22:18–20']],r:'2 Kings 22:8–20. The same story is in 2 Chronicles 34.',t:'Jeremiah and Zephaniah were both active at the time, yet the king’s men went to her. The text gives no explanation, which suggests nobody thought one was needed.'},
+jeremiah:{c:'Jehoiakim and Zedekiah, the Temple priests (Pashhur put him in the stocks), the false prophet Hananiah, and the officials who wanted him dead.',m:[['The call: before I formed thee in the womb I knew thee','Jer 1:4–10'],['The Temple sermon','Jer 7; 26'],['The broken flask; a night in the stocks','Jer 19–20'],['Wears a yoke; Hananiah breaks it','Jer 27–28'],['Letter to the exiles: seek the peace of the city','Jer 29'],['The new covenant','Jer 31:31–34'],['Buys a field while Babylon besieges the city','Jer 32'],['Jehoiakim burns the scroll','Jer 36'],['Lowered into the cistern; rescued by Ebed-melech','Jer 38'],['Jerusalem falls','Jer 39; 52'],['Taken to Egypt','Jer 43']],r:'Read with 2 Kings 22–25. The book isn’t in time order, so try this path: 1, 7, 26, 36, 19–20, 27–29, 32–34, 37–44, then 52. Lamentations after 2 Kings 25.',t:'Most chapters open by naming the king. Use that, not the chapter number, to place them on the chart. The Hananiah episode in chapters 27–28 is the sharpest picture of true and false prophecy in the Old Testament.'},
+uriah:{c:'Jehoiakim.',m:[['Preaches the same warnings as Jeremiah','Jer 26:20'],['Flees to Egypt, is brought back and executed','Jer 26:21–23']],r:'Jeremiah 26.',t:'His story sits inside the account of Jeremiah’s trial for a reason: it shows what could have happened to Jeremiah, and why Ahikam’s protection mattered.'},
+habakkuk:{c:'God himself. The book is a prophet’s argument with the Lord.',m:[['How long will violence go unpunished?','Hab 1:1–4'],['The answer: I am raising up the Chaldeans','Hab 1:5–11'],['The second complaint: how can you use people worse than us?','Hab 1:12–2:1'],['Write the vision; the just shall live by his faith','Hab 2:2–4'],['Five woes on the oppressor','Hab 2:6–20'],['Although the fig tree shall not blossom, yet I will rejoice','Hab 3:17–19']],r:'Three chapters, with 2 Kings 23:36–24:7.',t:'Read it as a conversation. It never answers the question of why, but it ends in trust anyway, which is the point. Paul builds Romans 1:17 and Galatians 3:11 on 2:4.'},
+baruch:{c:'No one directly. He carried Jeremiah’s message to the Temple and to the king’s court.',m:[['Witnesses Jeremiah’s purchase of the field','Jer 32:12–16'],['Writes and reads the scroll, then writes it again after it is burned','Jer 36'],['God’s word to Baruch: seek not great things for yourself','Jer 45'],['The exiles’ confession of sin','Bar 1:15–3:8'],['The poem on Wisdom','Bar 3:9–4:4'],['Take courage, Jerusalem','Bar 4:5–5:9']],r:'Jeremiah 36 and 45, then the book of Baruch, six chapters, the last of which is the Letter of Jeremiah.',t:'Baruch 3:9–15, 32–4:4 is one of the Old Testament readings at the Easter Vigil. Jeremiah 45 is small and personal: a worn-out scribe is told his life will be spared, and that will have to be enough.'},
+daniel:{c:'Nebuchadnezzar, Belshazzar, and the officials of Darius the Mede.',m:[['Refuses the king’s food','Dan 1'],['Interprets the dream of the great statue','Dan 2'],['The fiery furnace and the Song of the Three','Dan 3'],['Nebuchadnezzar’s madness','Dan 4'],['The writing on the wall','Dan 5'],['The lions’ den','Dan 6'],['Four beasts and one like a son of man','Dan 7'],['The seventy weeks','Dan 9'],['Susanna','Dan 13'],['Bel and the Dragon','Dan 14']],r:'Stories in 1–6, visions in 7–12, and the Greek additions in 13–14. 2 Kings 24:1 is the background.',t:'Catholic Bibles include the Prayer of Azariah and the Song of the Three Young Men in chapter 3 (verses 24–90). That canticle, the Benedicite, is prayed at Sunday Morning Prayer. Jesus takes his favorite title for himself, Son of Man, from Daniel 7:13.'},
+ezekiel:{c:'The exiles and their elders, the false prophets (13), the shepherds of Israel (34), and what was going on inside the Temple (8).',m:[['The vision of the throne-chariot','Ezek 1'],['Eats the scroll','Ezek 2:8–3:3'],['Appointed a watchman','Ezek 3:16–21; 33'],['Acts out the siege, lying on his side','Ezek 4–5'],['Sees idolatry in the Temple; the glory departs','Ezek 8–11'],['Each person answers for his own sin','Ezek 18'],['The false shepherds, and God as the true shepherd','Ezek 34'],['A new heart and a new spirit','Ezek 36:26'],['The valley of dry bones','Ezek 37'],['The river flowing from the Temple','Ezek 47']],r:'Chapters 1–3, 8–11, 18, 33–37 and 47. Chapters 1–24 happen while Zedekiah still rules in Jerusalem, so read them against 2 Kings 24–25.',t:'He dates everything by Jehoiachin’s exile, so “the fifth year” means 593 BC. The river of chapter 47 is the source of the Vidi aquam, sung at the sprinkling rite in the Easter season.'},
+joel:{c:'Judah’s priests and people, called to repent.',m:[['The locust plague','Joel 1'],['Rend your heart, and not your garments','Joel 2:12–13'],['I will pour out my spirit upon all flesh','Joel 2:28–32 (3:1–5 in NABRE)'],['The valley of Jehoshaphat','Joel 3 (4 in NABRE)']],r:'Three or four chapters, depending on your Bible. Then Acts 2:14–21.',t:'Joel 2:12–18 is the first reading on Ash Wednesday, and Peter quotes him at Pentecost. The valley of Jehoshaphat means “the Lord judges” and isn’t named for the king.'},
+obadiah:{c:'Edom.',m:[['The pride of Edom in its rock fortress','Obad 1–4'],['Gloating and looting when Jerusalem fell','Obad 10–14'],['The day of the Lord; the kingdom shall be the Lord’s','Obad 15–21']],r:'One chapter. Read it with Psalm 137:7 and Lamentations 4:21–22.',t:'Edom descends from Esau, so this is Jacob and Esau again (Genesis 25–33), the brothers’ quarrel still running centuries later.'}
+};
+const ERAS=[
+{t:'Before the split',n:'2 Samuel and 1 Kings 1. The promise the rest of the story hangs on.',ids:['nathan']},
+{t:'The kingdom divides',n:'1 Kings 11–14. Prophets announce the split, stop a civil war, and condemn Jeroboam’s altar.',ids:['ahijah','shemaiah','man_of_god']},
+{t:'Asa and Baasha',n:'1 Kings 15–16 and 2 Chronicles 14–20.',ids:['azariah_o','hanani','jehu_p']},
+{t:'The house of Omri',n:'1 Kings 17 to 2 Kings 9. Baal worship at its height, and Elijah and Elisha against it.',ids:['elijah','micaiah','jahaziel','elisha']},
+{t:'Jehu’s dynasty and Joash of Judah',n:'2 Kings 10–14 and 2 Chronicles 24.',ids:['zechariah_p','jonah']},
+{t:'The eighth-century prophets',n:'2 Kings 14–20. The first prophets whose books survive, preaching through Israel’s last good years, its collapse, and Assyria’s siege of Jerusalem.',ids:['amos','hosea','isaiah','micah','oded']},
+{t:'Judah alone',n:'2 Kings 21–25. From Manasseh to the fall of Jerusalem.',ids:['nahum','zephaniah','huldah','jeremiah','uriah','habakkuk','baruch']},
+{t:'In exile',n:'Where the story goes after 2 Kings ends.',ids:['daniel','ezekiel']},
+{t:'No fixed date',n:'Neither book names a king, so neither sits on the chart.',ids:['joel','obadiah']}
+];
 const BOOKS={"1K":"1 Kings","2K":"2 Kings","2C":"2 Chronicles"};
 const COUNT={"1K":22,"2K":25,"2C":36};
 const G={right:"+",evil:"−",mixed:"±",none:"○"};
@@ -593,6 +656,7 @@ function prophetSheet(x){
   let h=`<h2 id="sh-title" tabindex="-1">${x.name}</h2><p class="sh-sub">${x.fem?"Prophetess":"Prophet"}, ${dates(x)}</p>${akaHTML(x)}<dl class="facts">`;
   h+=row("Sent to",TO[x.to])+row("Book",x.book||"None; known from the historical books")+"</dl>";
   h+=`<p class="sum">${x.sum}</p>`;
+  if(GUIDE[x.id]) h+=`<button type="button" class="guide-link" data-guide="${x.id}">Open the reading guide</button>`;
   if(x.kings.length) h+=section(x.fem?"Kings in her day":"Kings in his day",x.kings.map(chip).join(""));
   h+=`<h3>Read</h3><p class="refs">${x.refs}</p>`;
   return h+clashHTML(x.id);
@@ -633,13 +697,32 @@ function load(){
   }catch(e){}
 }
 
+function guideCard(id){
+  const p=byId[id], g=GUIDE[id];
+  const sent=TO[p.to].replace(/^(Both|The) /,m=>m.toLowerCase());
+  const book=p.book?`Book: ${p.book}.`:`No book of ${p.fem?'her':'his'} own.`;
+  const col=p._c!=null?` pc${p._c}`:'';
+  const back=p.undated?'':`<button type='button' class='g-back' data-go='${id}'>Show on the chart</button>`;
+  return `<article class='g to-${p.to}${col}' id='guide-${id}'><h4 tabindex='-1'>${p.name}</h4><p class='g-meta'>${dates(p)}. Sent to ${sent}. ${book}</p><p>${p.sum}</p><h5>Confronted</h5><p>${g.c}</p><h5>Key moments</h5><ol class='g-m'>${g.m.map(m=>`<li>${m[0]} <cite>${m[1]}</cite></li>`).join('')}</ol><h5>Reading path</h5><p>${g.r}</p><h5>As you read</h5><p>${g.t}</p>${back}</article>`;
+}
+function goGuide(id){
+  const a=document.getElementById('guide-'+id); if(!a) return;
+  if($('#sheet').classList.contains('open')) close();
+  const y=a.getBoundingClientRect().top+window.scrollY-$('#bar').offsetHeight-12;
+  window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});
+  a.classList.add('flash'); setTimeout(()=>a.classList.remove('flash'),1800);
+  const h=a.querySelector('h4'); if(h) h.focus({preventScroll:true});
+}
 function renderLower(){
   $("#clashes").innerHTML = CLASH.map(g=>`<article><h3>${g.t}</h3><p>${g.d}</p><div>${g.ids.map(chip).join("")}</div></article>`).join("");
-  $("#undated").innerHTML = P.filter(p=>p.undated).map(p=>chip(p.id)).join("");
+  $('#g-nav').innerHTML = ERAS.map(e=>`<p class='g-nav'><span>${e.t}</span>${e.ids.map(id=>`<button type='button' class='chip c-prop' data-guide='${id}'>${byId[id].short||byId[id].name}</button>`).join('')}</p>`).join('');
+  $('#guide').innerHTML = ERAS.map(e=>`<h3 class='g-era'>${e.t}</h3><p class='g-era-n'>${e.n}</p>`+e.ids.map(guideCard).join('')).join('');
 }
 
 // Events
 document.addEventListener("click",e=>{
+  const gd=e.target.closest("[data-guide]");
+  if(gd){ goGuide(gd.dataset.guide); return; }
   const g=e.target.closest("[data-go]");
   if(g){ open(g.dataset.go); return; }
   const t=e.target.closest("#chart-wrap [data-id]");
@@ -657,8 +740,8 @@ load();
 $("#book").value=state.book;
 buildChaps();
 renderTrunk();
-renderLower();
 render();
+renderLower();
 lastS=S;
 if(state.chap) setTimeout(jumpFirst,250);
 })();
